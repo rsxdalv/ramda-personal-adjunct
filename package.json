@@ -1,0 +1,27 @@
+{
+  "name": "@rsxlv/ramda-personal-adjunct",
+  "version": "1.0.1",
+  "description": "One liners that I have typed one too many times",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsxdalv/ramda-personal-adjunct.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rsxdalv/ramda-personal-adjunct/issues"
+  },
+  "homepage": "https://github.com/rsxdalv/ramda-personal-adjunct#readme",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^4.0.1",
+    "typescript": "^2.8.1",
+    "webpack": "^3.11.0"
+  }
+}
