@@ -1,5 +1,7 @@
 import * as R from "ramda";
 
+export { filterObject, filterObjectByKeys } from "./src/filter-object";
+
 /**
  * Composition of map and pick 
  * Pluck multiple variables, same as picking from each member

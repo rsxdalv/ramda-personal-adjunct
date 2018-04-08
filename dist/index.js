@@ -60,17 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = require("ramda");
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const R = __webpack_require__(1);
+const R = __webpack_require__(0);
+var filter_object_1 = __webpack_require__(2);
+exports.filterObject = filter_object_1.filterObject;
+exports.filterObjectByKeys = filter_object_1.filterObjectByKeys;
 /**
  * Composition of map and pick
  * Pluck multiple variables, same as picking from each member
@@ -89,10 +98,16 @@ exports.virtual = spec => R.converge(R.merge, [R.identity, R.applySpec(spec)]);
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("ramda");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const R = __webpack_require__(0);
+exports.filterObject = pred => R.pipe(R.toPairs, R.filter(pred), R.fromPairs);
+exports.filterObjectByKeys = pred => exports.filterObject(R.pipe(R.head, pred));
+
 
 /***/ })
 /******/ ])));
