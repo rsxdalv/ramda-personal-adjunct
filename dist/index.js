@@ -75,8 +75,8 @@ module.exports = require("ramda");
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-const R = __webpack_require__(0);
+exports.__esModule = true;
+var R = __webpack_require__(0);
 var filter_object_1 = __webpack_require__(2);
 exports.filterObject = filter_object_1.filterObject;
 exports.filterObjectByKeys = filter_object_1.filterObjectByKeys;
@@ -89,12 +89,12 @@ exports.pluckMany = R.pipe(R.pick, R.map);
  * Log and return value
  * Less prone to @@transducer/step errors
  */
-exports.log = x => (console.log(x), x);
+exports.log = function (x) { return (console.log(x), x); };
 /**
  * Add virtual properties to a collection
  * @param spec Spec for virtual properties
  */
-exports.virtual = spec => R.converge(R.merge, [R.identity, R.applySpec(spec)]);
+exports.virtual = function (spec) { return R.converge(R.merge, [R.identity, R.applySpec(spec)]); };
 
 
 /***/ }),
@@ -103,10 +103,12 @@ exports.virtual = spec => R.converge(R.merge, [R.identity, R.applySpec(spec)]);
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-const R = __webpack_require__(0);
-exports.filterObject = pred => R.pipe(R.toPairs, R.filter(pred), R.fromPairs);
-exports.filterObjectByKeys = pred => exports.filterObject(R.pipe(R.head, pred));
+exports.__esModule = true;
+var R = __webpack_require__(0);
+exports.filterObject = function (pred) { return R.pipe(R.toPairs, R.filter(pred), R.fromPairs); };
+exports.filterObjectByKeys = function (pred) {
+    return exports.filterObject(R.pipe(R.head, pred));
+};
 
 
 /***/ })

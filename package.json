@@ -1,10 +1,11 @@
 {
   "name": "@rsxlv/ramda-personal-adjunct",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "One liners that I have typed one too many times",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
