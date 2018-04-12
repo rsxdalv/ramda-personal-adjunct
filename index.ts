@@ -1,5 +1,5 @@
 import * as R from "ramda";
-
+export { actionsFromObj } from "./src/actions-helper";
 export { filterObject, filterObjectByKeys } from "./src/filter-object";
 
 /**
@@ -19,3 +19,15 @@ export const log = x => (console.log(x), x);
  * @param spec Spec for virtual properties
  */
 export const virtual = spec => R.converge(R.merge, [R.identity, R.applySpec(spec)]);
+
+/**
+ * Boolean map
+ * @param yes 
+ * @param no 
+ */
+export const boolean = (yes, no) => (x) => x ? yes : no;
+
+/**
+ * Indexed map
+ */
+export const mapIndexed = R.addIndex(R.map);

@@ -77,7 +77,9 @@ module.exports = require("ramda");
 
 exports.__esModule = true;
 var R = __webpack_require__(0);
-var filter_object_1 = __webpack_require__(2);
+var actions_helper_1 = __webpack_require__(2);
+exports.actionsFromObj = actions_helper_1.actionsFromObj;
+var filter_object_1 = __webpack_require__(3);
 exports.filterObject = filter_object_1.filterObject;
 exports.filterObjectByKeys = filter_object_1.filterObjectByKeys;
 /**
@@ -95,10 +97,31 @@ exports.log = function (x) { return (console.log(x), x); };
  * @param spec Spec for virtual properties
  */
 exports.virtual = function (spec) { return R.converge(R.merge, [R.identity, R.applySpec(spec)]); };
+/**
+ * Boolean map
+ * @param yes
+ * @param no
+ */
+exports.boolean = function (yes, no) { return function (x) { return x ? yes : no; }; };
+/**
+ * Indexed map
+ */
+exports.mapIndexed = R.addIndex(R.map);
 
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+var R = __webpack_require__(0);
+exports.actionsFromObj = R.compose(R.apply(R.zipObj), R.repeat(R.__, 2), R.keys);
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
