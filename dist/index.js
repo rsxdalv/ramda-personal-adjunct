@@ -77,9 +77,11 @@ module.exports = require("ramda");
 
 exports.__esModule = true;
 var R = __webpack_require__(0);
-var actions_helper_1 = __webpack_require__(2);
+var functions_1 = __webpack_require__(2);
+exports.applicative = functions_1.applicative;
+var actions_helper_1 = __webpack_require__(3);
 exports.actionsFromObj = actions_helper_1.actionsFromObj;
-var filter_object_1 = __webpack_require__(3);
+var filter_object_1 = __webpack_require__(4);
 exports.filterObject = filter_object_1.filterObject;
 exports.filterObjectByKeys = filter_object_1.filterObjectByKeys;
 /**
@@ -117,11 +119,25 @@ exports.mapIndexed = R.addIndex(R.map);
 
 exports.__esModule = true;
 var R = __webpack_require__(0);
-exports.actionsFromObj = R.compose(R.apply(R.zipObj), R.repeat(R.__, 2), R.keys);
+/**
+ * Applies a list of functions in order over an input
+ */
+exports.applicative = R.apply(R.pipe);
 
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+var R = __webpack_require__(0);
+exports.actionsFromObj = R.compose(R.apply(R.zipObj), R.repeat(R.__, 2), R.keys);
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

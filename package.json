@@ -1,11 +1,12 @@
 {
   "name": "@rsxlv/ramda-personal-adjunct",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "One liners that I have typed one too many times",
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "q-publish": "webpack && git commit -am \"auto build\" && npm version minor && bash -c \"npm publish\""
   },
   "repository": {
     "type": "git",

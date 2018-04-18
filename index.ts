@@ -1,4 +1,5 @@
 import * as R from "ramda";
+export { applicative } from "./src/functions";
 export { actionsFromObj } from "./src/actions-helper";
 export { filterObject, filterObjectByKeys } from "./src/filter-object";
 
