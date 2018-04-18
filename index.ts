@@ -1,4 +1,7 @@
 import * as R from "ramda";
+
+export { sortLines } from "./src/text-commands";
+export { taggedLog } from "./src/prototyping";
 export { applicative } from "./src/functions";
 export { actionsFromObj } from "./src/actions-helper";
 export { filterObject, filterObjectByKeys } from "./src/filter-object";

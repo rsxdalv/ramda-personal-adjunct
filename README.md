@@ -4,3 +4,4 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 One liners that I have typed one too many times
+As well as some obscure one liners that I don't want to look up or write again.

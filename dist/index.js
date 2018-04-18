@@ -77,11 +77,15 @@ module.exports = require("ramda");
 
 exports.__esModule = true;
 var R = __webpack_require__(0);
-var functions_1 = __webpack_require__(2);
+var text_commands_1 = __webpack_require__(2);
+exports.sortLines = text_commands_1.sortLines;
+var prototyping_1 = __webpack_require__(3);
+exports.taggedLog = prototyping_1.taggedLog;
+var functions_1 = __webpack_require__(4);
 exports.applicative = functions_1.applicative;
-var actions_helper_1 = __webpack_require__(3);
+var actions_helper_1 = __webpack_require__(5);
 exports.actionsFromObj = actions_helper_1.actionsFromObj;
-var filter_object_1 = __webpack_require__(4);
+var filter_object_1 = __webpack_require__(6);
 exports.filterObject = filter_object_1.filterObject;
 exports.filterObjectByKeys = filter_object_1.filterObjectByKeys;
 /**
@@ -120,13 +124,50 @@ exports.mapIndexed = R.addIndex(R.map);
 exports.__esModule = true;
 var R = __webpack_require__(0);
 /**
+ * Sorts lines by a parsed regexp
+ * @param matcher
+ * @param parser
+ */
+exports.sortLines = function (matcher, parser) {
+    if (parser === void 0) { parser = R.identity; }
+    return R.pipe(R.split("\n"), R.sortBy(R.pipe(R.match(matcher), parser)));
+};
+exports.sortLinesTest = function () {
+    var d = "{ id: 0, image: spruces, answer: 8 },\n{ id: 1, image: maples, answer: 0 },\n{ id: 2, image: pine, answer: 9 },\n{ id: 3, image: oak, answer: 1 },\n{ id: 4, image: birch, answer: 3 },\n{ id: 5, image: spruce, answer: 4 },\n{ id: 6, image: maple, answer: 6 },\n{ id: 7, image: birches, answer: 2 },\n{ id: 8, image: oaks, answer: 5 },\n{ id: 9, image: pines, answer: 7 },";
+    R.pipe(exports.sortLines(/answer: (\d+)/), R.tap(console.log))(d);
+};
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+/**
+ * Log and return value
+ * Less prone to @@transducer/step errors
+ */
+exports.taggedLog = function (y) { return function (x) { return (console.log(y, x), x); }; };
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+exports.__esModule = true;
+var R = __webpack_require__(0);
+/**
  * Applies a list of functions in order over an input
  */
 exports.applicative = R.apply(R.pipe);
 
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -137,7 +178,7 @@ exports.actionsFromObj = R.compose(R.apply(R.zipObj), R.repeat(R.__, 2), R.keys)
 
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
