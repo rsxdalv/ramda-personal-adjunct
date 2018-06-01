@@ -7,6 +7,15 @@ import * as R from "ramda";
 export const taggedLog = y => x => (console.log(y, x), x);
 
 /**
+ * Log in pipeP
+ */
+export const promiseLog = R.curryN(2)(R.pipe(
+    R.uncurryN(2)(taggedLog),
+    // @ts-ignore
+    Promise.resolve.bind(Promise) 
+));
+
+/**
  * Prints diff objects
  */
 export const printDiff = R.pipe(

@@ -1,6 +1,6 @@
 {
   "name": "@rsxlv/ramda-personal-adjunct",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "One liners that I have typed one too many times",
   "main": "./dist/index.js",
   "scripts": {
